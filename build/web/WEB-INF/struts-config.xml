@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+     <form-bean type="Form.UsuarioForm" name="formLogin"/>
+     <form-bean type="Form.UsuarioForm" name="formUsuario"/>
+     <form-bean type="Form.HotelForm" name="formHotel"/>
+     <form-bean type="Form.ReservaHotelForm" name="formReservaHotel"/>
+     <form-bean type="Form.ReservaVueloForm" name="formReservaVuelo"/>
+     <form-bean type="Form.VueloForm" name="formVuelo"/>
+     <form-bean type="Form.SucursalForm" name="formSucursal"/>
+     <form-bean type="Form.ListaUsuarioForm" name="formUsuarioLista"/>
+     <form-bean type="Form.ConsultarCliente" name="formConsultarViaje"/>
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action path="/validateLogin" type="Action.LoginAction" input="/" name="formLogin">
+            <forward name="admin" path="/MENU/menuAdmin.jsp"/>
+            <forward name="cliente" path="/MENU/menuCliente.jsp"/>
+            <forward name="vendedor" path="/MENU/menuVendedor.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+        <action path="/Welcome" forward="/error.jsp"/>
+    </action-mappings>
+    
+    <action-mappings>
+        <action path="/agregarUsuario" type="Action.AgregarUsuario" name="formUsuario" >
+            <forward name="ok" path="/MENU/menuAdmin.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+    
+    <action-mappings>
+        <action path="/agregarCliente" type="Action.AgregarUsuario" name="formUsuario" >
+            <forward name="ok" path="/MENU/menuVendedor.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+    
+    <action-mappings>
+        <action path="/agregarHotel" type="Action.AgregarHotel" name="formHotel" >
+            <forward name="ok" path="/MENU/menuAdmin.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+    
+    <action-mappings>
+        <action path="/agregarVuelo" type="Action.AgregarVuelo" name="formVuelo" >
+            <forward name="ok" path="/MENU/menuAdmin.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+    
+    <action-mappings>
+        <action path="/agregarSucursal" type="Action.AgregarSucursal" name="formSucursal" >
+            <forward name="ok" path="/MENU/menuAdmin.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+        
+    <action-mappings>
+        <action path="/listarUsuarios" type="Action.ListarUsuarioAction" name="formUsuario">
+            <forward name="ok" path="/LISTA/listaUsuarios.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+    <action-mappings>
+        <action path="/listarClientes" type="Action.ListarCliente" name="formUsuario">
+            <forward name="ok" path="/LISTA/listaClientes.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+    <action-mappings>
+        <action path="/listarSucursales" type="Action.ListarSucursal" name="formSucursal">
+            <forward name="ok" path="/LISTA/listaSucursales.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+    <action-mappings>
+        <action path="/listarHoteles" type="Action.ListarHotel" name="formHotel">
+            <forward name="ok" path="/LISTA/listaHoteles.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+    <action-mappings>
+        <action path="/listarViaje" type="Action.ConsultarViaje" name="formReservaHotel">
+            <forward name="ok" path="/LISTA/listaViaje.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+    <action-mappings>
+    <action path="/menuReservarHotel" type="Action.ListarHotel" name="formHotel">
+            <forward name="ok" path="/RESERVAR/reservaHotel.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+    <action-mappings>
+        <action path="/reservarHotel" type="Action.ReservarHotel" name="formReservaHotel" >
+            <forward name="ok" path="/reservaExitosa.jsp"/>
+            <forward name="error" path="/errorReservaHot.jsp"/>
+        </action>
+    </action-mappings>
+    <action-mappings>
+        <action path="/listarVuelos" type="Action.ListarVuelo" name="formVuelo">
+            <forward name="ok" path="/LISTA/listaVuelos.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+    <action-mappings>
+        <action path="/menuReservarVuelo" type="Action.ListarVuelo" name="formVuelo">
+            <forward name="ok" path="/RESERVAR/reservaVuelo.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+    <action-mappings>
+        <action path="/reservarVuelo" type="Action.ReservarVuelo" name="formReservaVuelo" >
+            <forward name="ok" path="/reservaExitosa.jsp"/>
+            <forward name="error" path="/errorReservaHot.jsp"/>
+        </action>
+    </action-mappings>
+    <action-mappings>
+        <action path="/consultarViaje" type="Action.ConsultarViaje" name="formConsultarViaje">
+            <forward name="ok" path="/LISTA/listaViaje.jsp"/>
+            <forward name="error" path="/error.jsp"/>
+        </action>
+    </action-mappings>
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

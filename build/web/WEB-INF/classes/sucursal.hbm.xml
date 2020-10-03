@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+    <class name="Form.SucursalForm" table="sucursales">
+<!--        <property name="nombre" column="nombre" type="string">
+            
+        </property>-->
+        
+        <id name="id"  column="id">
+            <generator class="identity"></generator>
+        </id>
+        <property name="codSucursal" column="codSucursal" type="string">
+            
+        </property>
+        <property name="direccionSucursal" column="direccion" type="string">
+            
+        </property>
+        <property name="telefonoSucursal" column="telefono" type="string">
+            
+        </property>
+    </class>
+</hibernate-mapping>

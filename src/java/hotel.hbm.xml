@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+    <class name="Form.HotelForm" table="hotel">
+<!--        <property name="nombre" column="nombre" type="string">
+            
+        </property>-->
+        
+        <id name="id"  column="id">
+            <generator class="identity"></generator>
+        </id>
+        <property name="codHotel" column="codHotel" type="string">
+            
+        </property>
+        <property name="direccion" column="direccion" type="string">
+            
+        </property>
+        <property name="ciudad" column="ciudad" type="string">
+            
+        </property>
+        
+        <property name="telefono" column="telefono" type="string">
+            
+        </property>
+        <property name="numPlazas" column="numPlazas" type="string">
+            
+        </property>
+        <property name="tipoPension" column="tipoPension" type="string">
+            
+        </property>
+    </class>
+</hibernate-mapping>
